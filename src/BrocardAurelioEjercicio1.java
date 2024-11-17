@@ -57,6 +57,9 @@ public class BrocardAurelioEjercicio1 {
             }
             System.out.println();
         }
+        /*
+        El usuario escoje entre 3 opciones distintas
+         */
         while (true) {
             System.out.println("[2] Poner bomba");
             System.out.println("[1] Mostrar matriz");
@@ -64,11 +67,11 @@ public class BrocardAurelioEjercicio1 {
             int eleccion;
             if (scanner.hasNextInt()){
                 eleccion= scanner.nextInt();
-                if(eleccion == 0)  {
+                if(eleccion == 0)  { // El programa se cierra
                     System.out.println("El programa se cerrará...");
                     System.exit(0);
                 }
-                if (eleccion == 1){
+                if (eleccion == 1){ //El programa muestra la matriz
                     for (int[] ints : tablero) {
                         for (int anInt : ints) {
                             System.out.print(anInt + "   ");
@@ -76,7 +79,7 @@ public class BrocardAurelioEjercicio1 {
                         System.out.println();
                     }
                 }
-                if (eleccion == 2) {
+                if (eleccion == 2) { // El programa continua y pide coordenadasd para poner una bomba
                     int bombaColumna;
                     int bombaFila;
                     while (true) {
@@ -107,6 +110,9 @@ public class BrocardAurelioEjercicio1 {
                             scanner.next();
                         }
                     }
+                    /*
+                    Explosion de la bomba
+                     */
 
                     for (int i=0;i<tablero.length;i++){
                         tablero[i][bombaFila-1]= 0;
@@ -115,7 +121,7 @@ public class BrocardAurelioEjercicio1 {
                         tablero[bombaColumna-1][j]= 0;
                     }
                 }
-            } else {
+            } else { // Si se introduce un valor incorrecto, devuelve un mensaje y empieza el bucle de nuevo
                 System.out.println("Esta opción no existe");
                 scanner.next();
             }
